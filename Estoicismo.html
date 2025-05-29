@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Landing page minimalista sobre el Estoicismo aplicado a la materia de Lenguajes de Programacion">
+  
+  <!-- Icono de la web -->
+  <link rel="icon" href="Imagenes/Favicon.ico" type="image/x-icon">
+  <style>
+    :root {
+      /* Paleta Dark Estoica */
+      --stoic-charcoal:   #e0e0e0;    /* texto claro */
+      --stoic-stone:      #121212;    /* fondo principal */
+      --stoic-sand:       #1e1e1e;    /* fondo secundario */
+      --stoic-olive:      #4caf50;    /* acento verde */
+      --stoic-slate:      #90a4ae;    /* encabezados */
+      --stoic-terracotta: #ff5722;    /* botones alternativo */
+      --stoic-yellow:     #FFEB3B;    /* textos destacados y botones amarillos */
+      --stoic-darkblue:   #0d47a1;    /* azul oscuro para degradados */
+      /* Variables base */
+      --bg: var(--stoic-stone);
+      --fg: var(--stoic-charcoal);
+      --accent: var(--stoic-olive);
+      --light: var(--stoic-sand);
+      --radius: 0.5rem;
+      --spacing: 1.5rem;
+      --font: 'Helvetica Neue', Arial, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; font-family: var(--font); background: var(--bg); color: var(--fg); line-height: 1.6; }
+    a { text-decoration: none; }
+    /* Header y Footer con degradado animado */
+    header, footer {
+      padding: var(--spacing);
+      text-align: center;
+      background: linear-gradient(270deg, var(--stoic-slate), var(--stoic-darkblue), var(--stoic-slate));
+      background-size: 600% 600%;
+      animation: gradientBG 8s ease infinite;
+    }
+    /* Navegacion */
+    nav ul { display: flex; gap: var(--spacing); list-style: none; justify-content: center; padding: var(--spacing) 0; }
+    nav a {
+      color: var(--stoic-slate); /* Azul claro */
+      transition: color 0.3s, transform 0.3s;
+      animation: pulse 3s ease-in-out infinite; /* Latido */
+    }
+    nav a:hover {
+      color: var(--stoic-yellow);
+      transform: scale(1.1);
+    }
+    main { max-width: 900px; margin: auto; padding: var(--spacing); }
+    section, aside, form, table {
+      max-width: 800px;
+      margin: var(--spacing) auto;
+      opacity: 0;
+      animation: fadeIn 0.8s ease forwards;
+    }
+    section:nth-of-type(1) { animation-delay: 0.2s; }
+    section:nth-of-type(2) { animation-delay: 0.4s; }
+    section:nth-of-type(3) { animation-delay: 0.6s; }
+    section:nth-of-type(4), aside { animation-delay: 0.8s; }
+    h1, h2, h3 { color: var(--stoic-slate); margin-bottom: 0.5rem; }
+    /* Slide-in para titulos h2 */
+    section h2 {
+      animation: slideInLeft 0.8s ease both;
+    }
+    p, li, dd { margin-bottom: 0.75rem; }
+    figure { text-align: center; }
+    figure img {
+      max-width: 100%;
+      border-radius: var(--radius);
+    }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.75rem; border: 1px solid #333; }
+    /* Cita con borde degradado */
+    blockquote {
+      border-left: 4px solid transparent;
+      padding-left: 1rem;
+      font-style: italic;
+      color: var(--stoic-slate);
+      border-image: linear-gradient(180deg, var(--stoic-yellow), var(--stoic-darkblue)) 1;
+    }
+    address { font-style: normal; display: block; margin-top: 0.5rem; }
+    form { background: var(--light); padding: var(--spacing); border-radius: var(--radius); }
+    fieldset { border: none; }
+    label { display: block; margin-top: 0.75rem; }
+    input, textarea, select { width: 100%; padding: 0.5rem; margin-top: 0.25rem; border: 1px solid #444; border-radius: var(--radius); background: var(--stoic-sand); color: var(--fg); }
+    /* Boton con rebote */
+    button {
+      background: linear-gradient(90deg, var(--stoic-yellow), var(--stoic-darkblue));
+      color: var(--stoic-stone);
+      border: none;
+      cursor: pointer;
+      margin-top: 1rem;
+      padding: 0.5rem;
+      width: auto;
+      animation: bounce 2s infinite;
+      transition: transform 0.2s;
+    }
+    button:hover {
+      animation: none;
+      transform: translateY(-2px);
+    }
+    /* Checkbox alineado */
+    input[type="checkbox"] { width: auto; margin: 0 0.5rem 0 0; vertical-align: middle; }
+    label > input[type="checkbox"] { display: inline-block; }
+    video, audio, canvas { width: 100%; border-radius: var(--radius); background: #000; }
+    section#recursos article { margin-top: var(--spacing); }
+    section#recursos pre { margin: var(--spacing) 0; }
+    @media (max-width: 600px) { nav ul { flex-direction: column; gap: 0.5rem; } }
+    /* Animaciones */
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideInLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes bounce { 0%,20%,50%,80%,100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
+    @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+    @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+  </style>
+</head>
+<body>
+  <!-- Musica de fondo -->
+  <audio id="bg-music" src="Audios/Background_Music.mp3" loop autoplay></audio>
+
+  <header>
+    <h1>Estoicismo aplicado a Lenguajes de Programacion</h1>
+    <p><em>Maria Garcia la mejor profe de la ujap</em></p>
+    <nav>
+      <ul>
+        <li><a href="#intro">Inicio</a></li>
+        <li><a href="#principios">Principios</a></li>
+        <li><a href="#recursos">Recursos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="intro">
+      <h2>¿Por que el Estoicismo en Lenguajes de Programacion?</h2>
+      <p>La complejidad de los distintos paradigmas y sintaxis puede generar frustracion, especialmente cuando saltamos de un lenguaje a otro o enfrentamos un error que parece no tener solucion. Muchas veces, nos encontramos atrapados en bucles de sintaxis y dependencias, perdiendo la perspectiva de la solucion real.</p>
+      <p>El estoicismo ofrece una guia practica: al aplicar disciplina en nuestro enfoque, podemos descomponer problemas complejos en pasos mas pequenos, manteniendo la serenidad y concentrandonos en lo que esta en nuestro control. Este metodo no solo nos ayuda a depurar errores, sino tambien a interiorizar conceptos de manera mas solida.</p>
+      <p>Ademas, el estoicismo nos ensena a aceptar las dificultades como oportunidades de crecimiento. Al dominar multiples lenguajes, desarrollamos flexibilidad mental y resiliencia, cualidades esenciales para un programador exitoso.</p>
+      <figure>
+        <img src="Imagenes/Imagen_Estoica.jpg" alt="Reflexion de codigo">
+        <figcaption>Aprender con paciencia y constancia</figcaption>
+      </figure>
+    </section>
+
+    <section id="principios">
+      <h2>Principios Estoicos para el Programador</h2>
+      <ul>
+        <li><strong>Virtud:</strong> Escribir codigo limpio y legible.</li>
+        <li><strong>Sabiduria:</strong> Elegir el lenguaje adecuado para cada problema.</li>
+        <li><strong>Coraje:</strong> Enfrentar errores de compilacion y fallos en ejecucion.</li>
+        <li><strong>Templanza:</strong> Gestionar el tiempo de aprendizaje y no saltar pasos.</li>
+      </ul>
+      <table>
+        <caption>Del Estoicismo al Dominio de Lenguajes</caption>
+        <thead>
+          <tr><th>Estoico</th><th>Programador</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Autocontrol</td><td>Control de versiones (git)</td></tr>
+          <tr><td>Logica</td><td>Diseno de algoritmos</td></tr>
+          <tr><td>Paciencia</td><td>Depuracion paso a paso</td></tr>
+          <tr><td>Sencillez</td><td>Arquitectura modular</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="recursos">
+      <h2>Recursos de Aprendizaje</h2>
+      <article>
+        <h3>Snippet de Disciplina</h3>
+        <pre><code># Ciclo de estudio
+lenguajes = ['JavaScript', 'Python', 'MySQL']
+for lang in lenguajes:
+    estudiar(lang)
+    practicar(lang)
+    reflexionar(lang)</code></pre>
+      </article>
+      <article>
+        <h3>Video: Que es el Estoicismo mi pana?</h3>
+        <video controls>
+          <source src="Videos/Estoicismo_Video.mp4" type="video/mp4">
+          Tu navegador no soporta la etiqueta <code>video</code>.
+        </video>
+      </article>
+      <article>
+        <h3>Podcast Estoico</h3>
+        <audio controls>
+          <source src="Audios/Podcast_Estoico.mp3" type="audio/mpeg">
+          Tu navegador no soporta la etiqueta <code>audio</code>.
+        </audio>
+      </article>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <form action="#" method="post">
+        <fieldset>
+          <legend>Envianos tus dudas</legend>
+          <label for="name">Nombre:</label>
+          <input type="text" id="name" name="name" placeholder="Jesus Silva" required>
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+
+          <label for="message">Consulta:</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+
+          <label for="topic">Interes en:</label>
+          <select id="topic" name="topic">
+            <optgroup label="Lenguajes">
+              <option value="javascript">JavaScript</option>
+              <option value="python">Python</option>
+              <option value="mysql">MySQL</option>
+            </optgroup>
+          </select>
+
+          <label><input type="checkbox" name="newsletter"> Suscribirme al boletin</label>
+
+          <button type="submit">Enviar</button>
+        </fieldset>
+      </form>
+    </section>
+
+    <aside>
+      <h2>Cita Destacada</h2>
+      <blockquote>
+        "Depurar errores es practicar autocontrol: cada fallo es una oportunidad para mejorar tu codigo y tu temple estoico." <cite>Jesús Silva</cite>
+      </blockquote>
+    </aside>
+
+  </main>
+
+  <footer>
+    <p>Desarrollado por Jesus Silva</p>
+    <p>&copy; 2025 Stoic Landing • <address>Universidad y Aula Virtual</address></p>
+  </footer>
+
+  <script>
+    // Pausar/reanudar musica de fondo al reproducir otros medios
+    const bgMusic = document.getElementById('bg-music');
+    document.querySelectorAll('video, audio').forEach(el => {
+      if (el !== bgMusic) {
+        el.addEventListener('play', () => bgMusic.pause());
+        el.addEventListener('pause', () => bgMusic.play());
+        el.addEventListener('ended', () => bgMusic.play());
+      }
+    });
+  </script>
+</body>
+</html>

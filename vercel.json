@@ -1,6 +1,7 @@
 {
   "version": 2,
   "routes": [
-    { "src": "/", "dest": "/Estoicismo.html" }
+    { "src": "/", "dest": "/Estoicismo.html" },
+    { "src": "/(.*)", "dest": "/$1" }
   ]
 }

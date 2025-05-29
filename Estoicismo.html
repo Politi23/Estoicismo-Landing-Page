@@ -5,20 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Landing page minimalista sobre el Estoicismo aplicado a la materia de Lenguajes de Programacion">
   
-  <!-- Icono de la web -->
+
   <link rel="icon" href="Imagenes/Favicon.ico" type="image/x-icon">
   <style>
     :root {
+
       /* Paleta Dark Estoica */
+      
       --stoic-charcoal:   #e0e0e0;    /* texto claro */
       --stoic-stone:      #121212;    /* fondo principal */
       --stoic-sand:       #1e1e1e;    /* fondo secundario */
-      --stoic-olive:      #4caf50;    /* acento verde */
+      --stoic-olive:      #4caf50;    
       --stoic-slate:      #90a4ae;    /* encabezados */
-      --stoic-terracotta: #ff5722;    /* botones alternativo */
+      --stoic-terracotta: #ff5722;    
       --stoic-yellow:     #FFEB3B;    /* textos destacados y botones amarillos */
       --stoic-darkblue:   #0d47a1;    /* azul oscuro para degradados */
+
       /* Variables base */
+
       --bg: var(--stoic-stone);
       --fg: var(--stoic-charcoal);
       --accent: var(--stoic-olive);
@@ -30,7 +34,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; font-family: var(--font); background: var(--bg); color: var(--fg); line-height: 1.6; }
     a { text-decoration: none; }
-    /* Header y Footer con degradado animado */
+    
     header, footer {
       padding: var(--spacing);
       text-align: center;
@@ -38,12 +42,12 @@
       background-size: 600% 600%;
       animation: gradientBG 8s ease infinite;
     }
-    /* Navegacion */
+    
     nav ul { display: flex; gap: var(--spacing); list-style: none; justify-content: center; padding: var(--spacing) 0; }
     nav a {
-      color: var(--stoic-slate); /* Azul claro */
+      color: var(--stoic-slate); 
       transition: color 0.3s, transform 0.3s;
-      animation: pulse 3s ease-in-out infinite; /* Latido */
+      animation: pulse 3s ease-in-out infinite; 
     }
     nav a:hover {
       color: var(--stoic-yellow);
@@ -61,7 +65,7 @@
     section:nth-of-type(3) { animation-delay: 0.6s; }
     section:nth-of-type(4), aside { animation-delay: 0.8s; }
     h1, h2, h3 { color: var(--stoic-slate); margin-bottom: 0.5rem; }
-    /* Slide-in para titulos h2 */
+    
     section h2 {
       animation: slideInLeft 0.8s ease both;
     }
@@ -73,7 +77,7 @@
     }
     table { width: 100%; border-collapse: collapse; }
     th, td { padding: 0.75rem; border: 1px solid #333; }
-    /* Cita con borde degradado */
+    
     blockquote {
       border-left: 4px solid transparent;
       padding-left: 1rem;
@@ -86,7 +90,7 @@
     fieldset { border: none; }
     label { display: block; margin-top: 0.75rem; }
     input, textarea, select { width: 100%; padding: 0.5rem; margin-top: 0.25rem; border: 1px solid #444; border-radius: var(--radius); background: var(--stoic-sand); color: var(--fg); }
-    /* Boton con rebote */
+    
     button {
       background: linear-gradient(90deg, var(--stoic-yellow), var(--stoic-darkblue));
       color: var(--stoic-stone);
@@ -102,14 +106,14 @@
       animation: none;
       transform: translateY(-2px);
     }
-    /* Checkbox alineado */
+    
     input[type="checkbox"] { width: auto; margin: 0 0.5rem 0 0; vertical-align: middle; }
     label > input[type="checkbox"] { display: inline-block; }
     video, audio, canvas { width: 100%; border-radius: var(--radius); background: #000; }
     section#recursos article { margin-top: var(--spacing); }
     section#recursos pre { margin: var(--spacing) 0; }
     @media (max-width: 600px) { nav ul { flex-direction: column; gap: 0.5rem; } }
-    /* Animaciones */
+    
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes slideInLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
     @keyframes bounce { 0%,20%,50%,80%,100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
@@ -118,7 +122,7 @@
   </style>
 </head>
 <body>
-  <!-- Musica de fondo -->
+ 
   <audio id="bg-music" src="Audios/Background_Music.mp3" loop autoplay></audio>
 
   <header>
@@ -190,8 +194,7 @@ for lang in lenguajes:
       <article>
         <h3>Podcast Estoico</h3>
         <audio controls>
-          <source src="https://drive.google.com/uc?export=download&id=1aEwLZATEZlKSWDPfrQXxyEn-CDsQC56a" type="audio/mpeg">
-
+          <source src="Audios/Podcast_Estoico.mp3" type="audio/mpeg">
           Tu navegador no soporta la etiqueta <code>audio</code>.
         </audio>
       </article>
@@ -237,12 +240,12 @@ for lang in lenguajes:
   </main>
 
   <footer>
-    <p>Desarrollado por Jesus Silva</p>
-    <p>&copy; 2025 Stoic Landing • <address>Universidad y Aula Virtual</address></p>
+    <p>Desarrollado por Jesus Silva (El negro bello)</p>
+    <p>&copy; 2025 Stoic Landing • <address>Puerto Cabello, Venezuela mi loco</address></p>
   </footer>
 
   <script>
-    // Pausar/reanudar musica de fondo al reproducir otros medios
+    
     const bgMusic = document.getElementById('bg-music');
     document.querySelectorAll('video, audio').forEach(el => {
       if (el !== bgMusic) {

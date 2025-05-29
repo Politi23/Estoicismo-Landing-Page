@@ -1,13 +1,6 @@
 {
   "version": 2,
-  "builds": [
-    { "src": "Estoicismo.html",   "use": "@vercel/static" },
-    { "src": "Imagenes/**/*",     "use": "@vercel/static" },
-    { "src": "Audios/**/*",       "use": "@vercel/static" },
-    { "src": "Videos/**/*",       "use": "@vercel/static" }
-  ],
   "routes": [
-    { "src": "/",        "dest": "/Estoicismo.html" },
-    { "src": "/(.*)",    "dest": "/$1" }
+    { "src": "/", "dest": "/Estoicismo.html" }
   ]
 }
